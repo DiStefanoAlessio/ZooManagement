@@ -9,7 +9,7 @@ namespace DiStefanoZoo
     class Leone : Animale
     {
         public double LunghezzaCriniera { get; set; }
-        public bool IsmMaschio { get; set; }
+        public bool IsMaschio { get; set; }
 
         private double _temperaturaCorporeaC;
 
@@ -32,6 +32,37 @@ namespace DiStefanoZoo
             {
                 return false;
             }
+        }
+
+        public override double CalcolaCiboDiarioKg()
+        {
+            Random rnd = new Random();
+            int cibo = rnd.Next(8, 11);
+
+            return cibo;
+        }
+
+        public override double CalcolaCostoGestioneMensile()
+        {
+            return 400;
+        }
+
+        public override string EmettiVerso()
+        {
+            return "ROARRR!";
+        }
+
+        public double OreDiSonnoAlGiorno()
+        {
+            Random rnd = new Random();
+            int ore = rnd.Next(16, 21);
+
+            return ore;
+        }
+
+        public void RegistraPredazione()
+        {
+            _ultimaPredazione = DateTime.Now;
         }
     }
 }
