@@ -11,25 +11,36 @@ namespace DiStefanoZoo
         public string Nome { get; set; }
         public string Specie { get; set; }
         public int Eta { get; set; }
-        public double Peso { get; set; }
+
+        private double _peso;
+        private double _pesoIniziale;
+        private bool primoInserimentoPeso = true;
+        public double Peso { get {
+                return _peso;
+            } set
+            {
+                _peso = value;
+                if (primoInserimentoPeso)
+                {
+                    _pesoIniziale = _peso;
+                    primoInserimentoPeso = false;
+                }
+            }
+        }
+
+
         public string StatoDiSalute { get; set; }
         public DateOnly DataArrivo { get; set; }
         public int AnniAlloZoo { get; set; }
 
-        private double _pesoIniziale;
+       
 
         private int _numeroControlliVeterinari;
 
+        
+
         private double CalcolaVariazionePesoPercentuale()
         {
-            int i = 0;
-
-            while (i == 0)
-            {
-                _pesoIniziale = Peso;
-                i++;
-            }
-
             return ((Peso - _pesoIniziale) / _pesoIniziale) * 100;
         }
         private int CalcoloAnniAlloZoo()
@@ -57,14 +68,15 @@ namespace DiStefanoZoo
         }
         public void AggiornaPeso(double nuovoPeso)
         {
-            if (Peso != nuovoPeso)
+            
+            if (Peso != nuovoPeso && Peso > 0)
             {
                 Peso = nuovoPeso;
             }
 
             else
             {
-                Console.WriteLine("Il peso non è variato.");
+                Console.WriteLine("Il peso è nullo o non è variato.");
             }
         }
         public void EffettuaControlloVeterinario()
