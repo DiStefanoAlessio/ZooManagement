@@ -21,16 +21,16 @@ namespace DiStefanoZoo
 
             return (data - _ultimaPredazione).TotalDays;
         }
-        private bool VerificaTemperaturaAnomala()
+        private string VerificaTemperaturaAnomala()
         {
             if (_temperaturaCorporeaC >=40 || _temperaturaCorporeaC <= 37)
             {
-                return true;
+                return "Normale";
             }
 
             else
             {
-                return false;
+                return "Anomala";
             }
         }
 
@@ -52,10 +52,17 @@ namespace DiStefanoZoo
             return "ROARRR!";
         }
 
+        private bool primoCalcoloOreSonno;
+
+        private int ore;
+
         public double OreDiSonnoAlGiorno()
         {
-            Random rnd = new Random();
-            int ore = rnd.Next(16, 21);
+            if (primoCalcoloOreSonno)
+            {
+                Random rnd = new Random();
+                ore = rnd.Next(16, 21);
+            }
 
             return ore;
         }
@@ -63,6 +70,19 @@ namespace DiStefanoZoo
         public void RegistraPredazione()
         {
             _ultimaPredazione = DateTime.Now;
+        }
+
+        public string maschioFemmina()
+        {
+            if (IsMaschio)
+            {
+                return "Maschio";
+            }
+
+            else
+            {
+                return "Femmina";
+            }
         }
     }
 }

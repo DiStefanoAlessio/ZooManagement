@@ -59,11 +59,11 @@ namespace DiStefanoZoo
             return "Squawk squawk!";
         }
 
+        private bool primoCalcoloVelocità;
+
         private int velocità = 0;
         public int VelocitaNuotoKmH()
-        {
-            bool primoCalcoloVelocità = true;
-            
+        {  
             if (primoCalcoloVelocità)
             {
                 Random rnd = new Random();

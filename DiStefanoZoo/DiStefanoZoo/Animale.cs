@@ -14,6 +14,7 @@ namespace DiStefanoZoo
 
         private double _peso;
         private double _pesoIniziale;
+
         private bool primoInserimentoPeso = true;
         public double Peso { get {
                 return _peso;
@@ -87,14 +88,11 @@ namespace DiStefanoZoo
         }
         public virtual void MostraInformazioni()
         {
-
-
-
             Console.WriteLine("[" + Specie + "] " + Nome + " - " + Eta + " - " + Peso + " - " + StatoDiSalute +
-                              "Allo zoo da: " + AnniAlloZoo + " anni" +
-                              "Peso iniziale: " + _pesoIniziale + " (Variazione: " + CalcolaVariazionePesoPercentuale() + "%)" +
-                              "Controlli veterinari effettuati: " + _numeroControlliVeterinari +
-                              "Cibo giornaliero: " + CalcolaCiboDiarioKg() + "Kg" + " | " + "Costo mensile: " + CalcolaCostoGestioneMensile() + "€");
+                              "\nAllo zoo da: " + AnniAlloZoo + " anni" +
+                              "\nPeso iniziale: " + _pesoIniziale + " (Variazione: " + CalcolaVariazionePesoPercentuale() + "%)" +
+                              "\nControlli veterinari effettuati: " + _numeroControlliVeterinari +
+                              "\nCibo giornaliero: " + CalcolaCiboDiarioKg() + "Kg" + " | " + "Costo mensile: " + CalcolaCostoGestioneMensile() + "€");
         }
     }
 }
