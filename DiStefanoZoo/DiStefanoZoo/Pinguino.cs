@@ -79,5 +79,14 @@ namespace DiStefanoZoo
             
             VerificaEsposizioneAcqua();
         }
+
+        public override void MostraInformazioni()
+        {
+            base.MostraInformazioni();
+            Console.WriteLine("\nTemperatura acqua ideale: "+TemperaturaAcquaIdeale+"°C | Uova quest'anno: "+
+                              "\nSpessore grasso: "+_spessoreGrassoSottocutaneoMm+" mm ("+CalcolaIsolamentoTermico+")"+
+                              "\nTempo in acqua oggi: "+_tempoInAcquaOreGiornaliere+" ore ("+VerificaEsposizioneAcqua+")"+
+                              "\nVelocità nuoto: "+VelocitaNuotoKmH+" km/h");
+        }
     }
 }

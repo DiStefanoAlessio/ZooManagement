@@ -8,7 +8,7 @@ namespace DiStefanoZoo
 {
     class Leone : Animale
     {
-        public double LunghezzaCriniera { get; set; }
+        public double LunghezzaCriniera { get { return LunghezzaCriniera; } set { if (IsMaschio) LunghezzaCriniera = value; else LunghezzaCriniera = 0; } }
         public bool IsMaschio { get; set; }
 
         private double _temperaturaCorporeaC;
@@ -23,7 +23,7 @@ namespace DiStefanoZoo
         }
         private string VerificaTemperaturaAnomala()
         {
-            if (_temperaturaCorporeaC >=40 || _temperaturaCorporeaC <= 37)
+            if (_temperaturaCorporeaC >= 40 || _temperaturaCorporeaC <= 37)
             {
                 return "Normale";
             }
@@ -83,6 +83,15 @@ namespace DiStefanoZoo
             {
                 return "Femmina";
             }
+        }
+
+        public override void MostraInformazioni()
+        {
+            base.MostraInformazioni();
+            Console.WriteLine("\nGenere: " + maschioFemmina() + " | Lunghezza criniera: " + LunghezzaCriniera + " cm" +
+                              "\nGiorni dall'ultima predazione: " + CalcolaGiorniDallUltimaPredazione()+
+                              "\nTemperatura corporea: "+_temperaturaCorporeaC+ "°C (" + VerificaTemperaturaAnomala + ")" +
+                              "\nOre di sonno: "+OreDiSonnoAlGiorno());
         }
     }
 }

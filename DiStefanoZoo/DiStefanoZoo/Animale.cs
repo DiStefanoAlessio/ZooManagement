@@ -88,11 +88,11 @@ namespace DiStefanoZoo
         }
         public virtual void MostraInformazioni()
         {
-            Console.WriteLine("[" + Specie + "] " + Nome + " - " + Eta + " - " + Peso + " - " + StatoDiSalute +
+            Console.WriteLine("[" + Specie + "] " + Nome + " - " + Eta + " anni - " + Peso + " kg - " + StatoDiSalute +
                               "\nAllo zoo da: " + AnniAlloZoo + " anni" +
                               "\nPeso iniziale: " + _pesoIniziale + " (Variazione: " + CalcolaVariazionePesoPercentuale() + "%)" +
                               "\nControlli veterinari effettuati: " + _numeroControlliVeterinari +
-                              "\nCibo giornaliero: " + CalcolaCiboDiarioKg() + "Kg" + " | " + "Costo mensile: " + CalcolaCostoGestioneMensile() + "€");
+                              "\nCibo giornaliero: " + CalcolaCiboDiarioKg() + "Kg | Costo mensile: " + CalcolaCostoGestioneMensile() + "€");
         }
     }
 }

@@ -101,5 +101,14 @@ namespace DiStefanoZoo
 
             CalcolaSalutePelle();
         }
+
+        public override void MostraInformazioni()
+        {
+            base.MostraInformazioni();
+            Console.WriteLine("Proboscide: " + LunghezzaProboscide + " cm | Consumo acqua: " + ConsumoDiAcquaLitri + " litri/giorno (" + VerificaIdratazione + ") " +
+                              "\nSalute pelle: " +
+                              "\nBagni questa settimana: " + _frequenzaBagniSettimanali +
+                              "\n" + CapacitaMemoria());
+        }
     }
 }
