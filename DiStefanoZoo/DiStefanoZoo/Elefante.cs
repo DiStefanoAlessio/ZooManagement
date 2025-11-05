@@ -13,7 +13,7 @@ namespace DiStefanoZoo
 
         private int _salutePelle;
 
-        private int _frequenzaBagniSettimanali;
+        private int _frequenzaBagniSettimanali = 0;
 
         private int CalcolaSalutePelle()
         {
@@ -70,6 +70,36 @@ namespace DiStefanoZoo
             {
                 return "Idratazione sufficiente.";
             }
+        }
+
+        public override double CalcolaCiboDiarioKg()
+        {
+            Random rnd = new Random();
+            int cibo = rnd.Next(150, 201);
+
+            return cibo;
+        }
+
+        public override double CalcolaCostoGestioneMensile()
+        {
+            return 800;
+        }
+
+        public override string EmettiVerso()
+        {
+            return "Barrrrrito!";
+        }
+
+        public string CapacitaMemoria()
+        {
+            return "La sua memoria dura fino a 20 anni!";
+        }
+
+        public void RegistraBagno(int quantita)
+        {
+            _frequenzaBagniSettimanali = _frequenzaBagniSettimanali + quantita;
+
+            CalcolaSalutePelle();
         }
     }
 }
